@@ -153,6 +153,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   //Changed DB
   void changeCounter(dynamic data) {
+    if (data["up"] > _up) {
+      _greenColorController.reset();
+      _greenColorController.forward();
+    }
+    if (data["down"] > _down) {
+      _redColorController.reset();
+      _redColorController.forward();
+    }
     setState(() {
       _up = data["up"];
       _down = data["down"];
